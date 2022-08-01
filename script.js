@@ -63,22 +63,39 @@ class Date {
 }
 
 function doomsdayMessage() {
-    const doom = ['monkey uprising', 'lizard people', 'alien invasion', 'meteor shower', 'deadly pandemic', 'nuclear war', 'zombie apocalypse', 'rogue AI', 'natural disasters', 'climate change', 'black hole', 'killer clowns', 'eldritch gods'];
-    return `The world will end by ${doom[Math.floor(Math.random()*doom.length)]}`;
+    const randomDate = new Date();
+    const dooms = ['monkey uprising', 'lizard people', 'alien invasion', 'meteors', 'deadly pandemic', 'nuclear war', 'zombie apocalypse', 'rogue AI', 'natural disasters', 'climate change', 'black hole', 'killer clowns', 'eldritch gods'];
+    if (randomDate.endsWith(1) && randomDate.day != 11) {
+        document.getElementById("line1").innerHTML = `On the ${randomDate.day}st of ${randomDate.monthToString()}, ${randomDate.year}`;
+    }
+    else if (randomDate.endsWith(2) && randomDate.day != 12) {
+        document.getElementById("line1").innerHTML = `On the ${randomDate.day}nd of ${randomDate.monthToString()}, ${randomDate.year}`;
+    }
+    else if (randomDate.endsWith(3) && randomDate.day != 13) {
+        document.getElementById("line1").innerHTML = `On the ${randomDate.day}rd of ${randomDate.monthToString()}, ${randomDate.year}`;
+    }
+    else {
+        document.getElementById("line1").innerHTML = `On the ${randomDate.day}th of ${randomDate.monthToString()}, ${randomDate.year}`;
+    }
+    const doom = dooms[Math.floor(Math.random()*dooms.length)];
+    document.getElementById("line2").innerHTML = `The world will end by ${doom}.`;
+    const image = document.createElement("img");
+    switch (doom) {
+        case 'monkey uprising': 
+            image.src = "./images/monkey.jpg";
+            break;
+        case 'lizard people':
+            image.src = "./images/lizard.png";
+            break;
+        case 'alien invasion':
+            image.src = "./images/alien.gif";
+            break;
+        case 'meteors':
+            image.src = "./images/meteor.jpg";
+    }
+    document.getElementById("line2").after(image);
+    document.getElementById("line3").innerHTML = `The likelihood is ${Math.floor(Math.random()*101)}%.`;
 }
 
+doomsdayMessage();
 
-const randomDate = new Date();
-if (randomDate.endsWith(1) && randomDate.day != 11) {
-    console.log(`On the ${randomDate.day}st of ${randomDate.monthToString()}, ${randomDate.year}`);
-}
-else if (randomDate.endsWith(2) && randomDate.day != 12) {
-    console.log(`On the ${randomDate.day}nd of ${randomDate.monthToString()}, ${randomDate.year}`);
-}
-else if (randomDate.endsWith(3) && randomDate.day != 13) {
-    console.log(`On the ${randomDate.day}rd of ${randomDate.monthToString()}, ${randomDate.year}`);
-}
-else {
-    console.log(`On the ${randomDate.day}th of ${randomDate.monthToString()}, ${randomDate.year}`);
-}
-console.log(doomsdayMessage());
