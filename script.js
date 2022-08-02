@@ -63,6 +63,7 @@ class Date {
 }
 
 function doomsdayMessage() {
+    imageLink.style.pointerEvents = "none";
     const randomDate = new Date();
     const dooms = ['monkey uprising', 'lizard people', 'alien invasion', 'meteors', 'deadly pandemic', 'nuclear war', 'zombie apocalypse', 'rogue AI', 'natural disasters', 'climate change', 'black holes', 'killer clowns', 'eldritch gods'];
     const dateInput = document.getElementById("date-input");

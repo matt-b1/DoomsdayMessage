@@ -3,16 +3,27 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+    margin: 0;
+    margin-top: 0;
     color:white;
+}
+
+header {
+    background-color: #4700ca23;
 }
 
 h1 {
     text-decoration: underline;
+    text-decoration-color: #f20707;
     font-size: 40px;
 }
 
 span {
     font-weight: 800;
+}
+
+a:link {
+    color: rgb(199, 199, 255);
 }
 
 .main-container {
@@ -46,6 +57,8 @@ span {
 .btn:hover {
     color: red;
     background: rgba(255, 255, 255, 0.11);
+    text-decoration: underline;
+    border: 2px solid red;
     padding: 28px 43px;
     opacity: 1;
 }
@@ -53,6 +66,24 @@ span {
 .btn:active {
     background: rgba(255, 255, 255, 0.2);
 }
+
+.footer {
+    background-color: #4700ca23;
+    position: fixed;
+    font-size: 14px;
+    bottom: 0px;
+    height: 38px;
+    width: 100%;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer .icon {
+    height: 18px;
+}
+
 
 #image {
     width: auto;
