@@ -81,7 +81,6 @@ function doomsdayMessage() {
     const doom = dooms[Math.floor(Math.random()*dooms.length)];
     const doomInput = document.getElementById("doom-input");
     doomInput.innerHTML = `${doom}.`;
-    const image = document.createElement("img");
     switch (doom) {
         case 'monkey uprising': 
             image.src = "./images/monkey.jpg";
@@ -92,6 +91,8 @@ function doomsdayMessage() {
             image.alt = "One very angry lizard";
             break;
         case 'alien invasion':
+            imageLink.style.pointerEvents = "auto";
+            imageLink.href = "https://www.youtube.com/watch?v=7kg3t_--3ds";
             image.src = "./images/alien.gif";
             image.alt = "What a true alien invasion would look like";
             break;
@@ -136,8 +137,7 @@ function doomsdayMessage() {
             image.alt = "PH'NGLUI MGLW'NAFH CTHULHU R'LYEH WGAH'NAGL FHTAGN";
             break;
     }
-    document.getElementById("image").after(image);
-    document.getElementById("percentage").innerHTML = `${Math.floor(Math.random()*101)}%.`;
+    document.getElementById("percentage").innerHTML = `${Math.floor(Math.random()*101)}%`;
 }
 
 doomsdayMessage();
