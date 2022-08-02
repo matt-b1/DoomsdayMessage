@@ -64,37 +64,80 @@ class Date {
 
 function doomsdayMessage() {
     const randomDate = new Date();
-    const dooms = ['monkey uprising', 'lizard people', 'alien invasion', 'meteors', 'deadly pandemic', 'nuclear war', 'zombie apocalypse', 'rogue AI', 'natural disasters', 'climate change', 'black hole', 'killer clowns', 'eldritch gods'];
+    const dooms = ['monkey uprising', 'lizard people', 'alien invasion', 'meteors', 'deadly pandemic', 'nuclear war', 'zombie apocalypse', 'rogue AI', 'natural disasters', 'climate change', 'black holes', 'killer clowns', 'eldritch gods'];
+    const dateInput = document.getElementById("date-input");
     if (randomDate.endsWith(1) && randomDate.day != 11) {
-        document.getElementById("line1").innerHTML = `On the ${randomDate.day}st of ${randomDate.monthToString()}, ${randomDate.year}`;
+        dateInput.innerHTML = `${randomDate.day}st of ${randomDate.monthToString()}, ${randomDate.year}`;    
     }
     else if (randomDate.endsWith(2) && randomDate.day != 12) {
-        document.getElementById("line1").innerHTML = `On the ${randomDate.day}nd of ${randomDate.monthToString()}, ${randomDate.year}`;
+        dateInput.innerHTML = `${randomDate.day}nd of ${randomDate.monthToString()}, ${randomDate.year}`;    
     }
     else if (randomDate.endsWith(3) && randomDate.day != 13) {
-        document.getElementById("line1").innerHTML = `On the ${randomDate.day}rd of ${randomDate.monthToString()}, ${randomDate.year}`;
+        dateInput.innerHTML = `${randomDate.day}rd of ${randomDate.monthToString()}, ${randomDate.year}`;    
     }
     else {
-        document.getElementById("line1").innerHTML = `On the ${randomDate.day}th of ${randomDate.monthToString()}, ${randomDate.year}`;
+        dateInput.innerHTML = `${randomDate.day}th of ${randomDate.monthToString()}, ${randomDate.year}`;    
     }
     const doom = dooms[Math.floor(Math.random()*dooms.length)];
-    document.getElementById("line2").innerHTML = `The world will end by ${doom}.`;
+    const doomInput = document.getElementById("doom-input");
+    doomInput.innerHTML = `${doom}.`;
     const image = document.createElement("img");
     switch (doom) {
         case 'monkey uprising': 
             image.src = "./images/monkey.jpg";
+            image.alt = "An intimidating monkey";
             break;
         case 'lizard people':
             image.src = "./images/lizard.png";
+            image.alt = "One very angry lizard";
             break;
         case 'alien invasion':
             image.src = "./images/alien.gif";
+            image.alt = "What a true alien invasion would look like";
             break;
         case 'meteors':
             image.src = "./images/meteor.jpg";
+            image.alt = "A lot of space rocks";
+            break;
+        case 'deadly pandemic':
+            image.src = "./images/plague.jpg";
+            image.alt = "Boys' night out";
+            break;
+        case 'nuclear war':
+            image.src = "./images/war.jpg";
+            image.alt = "A mushroom cloud";
+            break;
+        case 'zombie apocalypse':
+            image.src = "./images/zombies.jpg";
+            image.alt = "Previously on...";
+            break;
+        case 'rogue AI':
+            image.src = "./images/robot.jpg";
+            image.alt = "The robot uprising";
+            break;
+        case 'natural disasters':
+            image.src = "./images/volcano.jpg";
+            image.alt = "A volcano that erupted";
+            break;
+        case 'climate change':
+            image.src = "./images/climatechange.jpg";
+            image.alt = "The most likely scenario";
+            break;
+        case 'black holes':
+            image.src = "./images/blackhole.jpg";
+            image.alt = "Visual depiction of a black hole";
+            break;
+        case 'killer clowns':
+            image.src = "./images/clown.jpg";
+            image.alt = "An accurate representation of me";
+            break;
+        case 'eldritch gods':
+            image.src = "./images/eldritch.png";
+            image.alt = "PH'NGLUI MGLW'NAFH CTHULHU R'LYEH WGAH'NAGL FHTAGN";
+            break;
     }
-    document.getElementById("line2").after(image);
-    document.getElementById("line3").innerHTML = `The likelihood is ${Math.floor(Math.random()*101)}%.`;
+    document.getElementById("image").after(image);
+    document.getElementById("percentage").innerHTML = `${Math.floor(Math.random()*101)}%.`;
 }
 
 doomsdayMessage();
